@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36127.28 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YPass", "YPass\YPass.csproj", "{454A80D1-CF68-8E57-1859-3C52BA15DE89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YPass.Desktop", "YPass.Desktop\YPass.Desktop.csproj", "{3AB4F5A8-7432-DB7D-EEC3-19F5F3AC2411}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{454A80D1-CF68-8E57-1859-3C52BA15DE89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{454A80D1-CF68-8E57-1859-3C52BA15DE89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{454A80D1-CF68-8E57-1859-3C52BA15DE89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{454A80D1-CF68-8E57-1859-3C52BA15DE89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AB4F5A8-7432-DB7D-EEC3-19F5F3AC2411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AB4F5A8-7432-DB7D-EEC3-19F5F3AC2411}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AB4F5A8-7432-DB7D-EEC3-19F5F3AC2411}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AB4F5A8-7432-DB7D-EEC3-19F5F3AC2411}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86C7A30D-2C6D-40C5-81C2-4146CFAFFBBC}
+	EndGlobalSection
+EndGlobal
