@@ -4,9 +4,238 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:YPass.Views"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
         x:Class="YPass.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="YPass">
-        <views:MainView />
+        Title="YPass - Gestionnaire de Mots de Passe"
+        MinWidth="600"
+        MinHeight="400"
+        Width="800"
+        Height="600"
+        WindowStartupLocation="CenterScreen">
+
+	<Design.DataContext>
+		<vm:MainWindowViewModel/>
+	</Design.DataContext>
+
+	<!-- Layout principal avec Grid -->
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<!-- Header -->
+			<RowDefinition Height="*"/>
+			<!-- Contenu principal -->
+			<RowDefinition Height="Auto"/>
+			<!-- Footer/Status -->
+		</Grid.RowDefinitions>
+
+		<!-- Header avec titre et menu -->
+		<Border Grid.Row="0"
+                Background="#2C3E50"
+                Padding="20,15">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+
+				<StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="10">
+					<Path Data="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10.5V11.5C15.4,11.5 16,12.4 16,13V16C16,16.6 15.6,17 15,17H9C8.4,17 8,16.6 8,16V13C8,12.4 8.4,11.5 9,11.5V10.5C9,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.2,8.7 10.2,10.5V11.5H13.8V10.5C13.8,8.7 12.8,8.2 12,8.2Z"
+                          Fill="White"
+                          Width="24"
+                          Height="24"/>
+					<TextBlock Text="YPass"
+                               Classes="Titre"
+                               Foreground="White"
+                               VerticalAlignment="Center"/>
+				</StackPanel>
+
+				<StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10" >
+					<Button Content="Paramètres" Classes="ButtonBleu" />
+					<Button Content="À propos" Classes="ButtonVert" />
+				</StackPanel>
+			</Grid>
+		</Border>
+
+		<!-- Contenu principal -->
+		<ScrollViewer Grid.Row="1" Padding="20">
+			<StackPanel Classes="Container" Spacing="20">
+
+				<!-- Section de recherche -->
+				<Border Background="#F8F9FA"
+                        CornerRadius="8"
+                        Padding="20">
+					<StackPanel Spacing="10">
+						<TextBlock Text="Rechercher un mot de passe"
+                                   Classes="SousTitre" />
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="Auto"/>
+							</Grid.ColumnDefinitions>
+							<TextBox Grid.Column="0"
+                                     Classes="Moderne"
+                                     Watermark="Rechercher par nom de site..."
+                                     Margin="0,0,10,0"/>
+							<Button Grid.Column="1"
+                                    Content="Rechercher"
+                                    Classes="ButtonBleu"/>
+						</Grid>
+					</StackPanel>
+				</Border>
+
+				<!-- Section d'ajout -->
+				<Border Background="#F8F9FA"
+                        CornerRadius="8"
+                        Padding="20">
+					<StackPanel Spacing="15">
+						<TextBlock Text="Ajouter un nouveau mot de passe"
+                                   Classes="SousTitre" />
+
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+
+							<TextBlock Grid.Row="0" Grid.Column="0"
+                                       Text="Nom du site :"
+                                       Margin="0,0,10,5"/>
+							<TextBox Grid.Row="1" Grid.Column="0"
+                                     Classes="Moderne"
+                                     Margin="0,0,10,10"
+                                     Watermark="ex: Google, Facebook..."/>
+
+							<TextBlock Grid.Row="0" Grid.Column="1"
+                                       Text="Nom d'utilisateur :"
+                                       Margin="0,0,0,5"/>
+							<TextBox Grid.Row="1" Grid.Column="1"
+                                     Classes="Moderne"
+                                     Margin="0,0,0,10"
+                                     Watermark="votre@email.com"/>
+
+							<TextBlock Grid.Row="2" Grid.Column="0"
+                                       Text="Mot de passe :"
+                                       Margin="0,0,10,5"/>
+							<TextBox Grid.Row="3" Grid.Column="0"
+                                     Classes="Moderne"
+                                     Margin="0,0,10,0"
+                                     PasswordChar="•"
+                                     Watermark="Mot de passe sécurisé"/>
+
+							<StackPanel Grid.Row="3" Grid.Column="1"
+                                        Orientation="Horizontal"
+                                        Spacing="10">
+								<Button Content="Générer" Classes="ButtonVert" />
+								<Button Content="Ajouter" Classes="ButtonBleu" />
+							</StackPanel>
+						</Grid>
+					</StackPanel>
+				</Border>
+
+				<!-- Section de liste des mots de passe -->
+				<Border Background="#F8F9FA"
+                        CornerRadius="8"
+                        Padding="20">
+					<StackPanel Spacing="15">
+						<TextBlock Text="Mots de passe enregistrés"
+                                   Classes="SousTitre" />
+
+						<!-- Exemple d'éléments de liste -->
+						<Border Background="White"
+                                CornerRadius="5"
+                                Padding="15"
+                                BorderBrush="#E0E0E0"
+                                BorderThickness="1">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="Auto"/>
+								</Grid.ColumnDefinitions>
+
+								<Ellipse Grid.Column="0"
+                                         Width="40" Height="40"
+                                         Fill="#3498DB"
+                                         Margin="0,0,15,0"/>
+
+								<StackPanel Grid.Column="1">
+									<TextBlock Text="Google"
+                                               FontWeight="Bold"
+                                               FontSize="16"/>
+									<TextBlock Text="utilisateur@gmail.com"
+                                               Foreground="#666666"/>
+								</StackPanel>
+
+								<StackPanel Grid.Column="2"
+                                            Orientation="Horizontal"
+                                            Spacing="5">
+									<Button Content="Copier" Classes="ButtonVert" />
+									<Button Content="Modifier" Classes="ButtonBleu" />
+									<Button Content="Supprimer" Classes="ButtonRouge" />
+								</StackPanel>
+							</Grid>
+						</Border>
+					</StackPanel>
+				</Border>
+
+				<!-- Actions principales -->
+				<StackPanel Orientation="Horizontal"
+                            Spacing="15"
+                            HorizontalAlignment="Center">
+					<Button Content="📁 Importer"
+                            Classes="ButtonBleu"
+                            Width="120"
+                            Height="40"/>
+					<Button Content="💾 Exporter"
+                            Classes="ButtonVert"
+                            Width="120"
+                            Height="40"/>
+					<Button Content="🔒 Verrouiller"
+                            Classes="ButtonRouge"
+                            Width="120"
+                            Height="40"/>
+				</StackPanel>
+
+			</StackPanel>
+		</ScrollViewer>
+
+		<!-- Footer/Barre de statut -->
+		<Border Grid.Row="2"
+                Background="#34495E"
+                Padding="15,10">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+
+				<TextBlock Grid.Column="0"
+                           Text="Prêt - 0 mot de passe enregistré"
+                           Foreground="White"
+                           VerticalAlignment="Center"/>
+
+				<StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            Spacing="10">
+					<TextBlock Text="🔐 Sécurisé"
+                               Foreground="#2ECC71"
+                               VerticalAlignment="Center"/>
+					<TextBlock Text="v1.0.0"
+                               Foreground="#BDC3C7"
+                               VerticalAlignment="Center"/>
+				</StackPanel>
+			</Grid>
+		</Border>
+
+	</Grid>
+
 </Window>

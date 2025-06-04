@@ -1,0 +1,108 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<!-- Style pour bouton rouge avec effets -->
+	<Style Selector="Button.ButtonRouge">
+		<Setter Property="Background" Value="#FFB22222" />
+		<Setter Property="Foreground" Value="White" />
+		<Setter Property="BorderBrush" Value="#AA0000" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="CornerRadius" Value="5" />
+		<Setter Property="Padding" Value="10,5" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="Cursor" Value="Hand" />
+
+		<!-- Effet au survol -->
+		<Style Selector="^:pointerover">
+			<Setter Property="Background" Value="#CC1111" />
+			<Setter Property="BorderBrush" Value="#CC0000" />
+		</Style>
+
+		<!-- Effet quand pressé -->
+		<Style Selector="^:pressed">
+			<Setter Property="Background" Value="#990000" />
+			<Setter Property="BorderBrush" Value="#770000" />
+		</Style>
+
+		<!-- Effet quand désactivé -->
+		<Style Selector="^:disabled">
+			<Setter Property="Background" Value="#CCCCCC" />
+			<Setter Property="Foreground" Value="#666666" />
+			<Setter Property="BorderBrush" Value="#999999" />
+		</Style>
+	</Style>
+
+	<!-- Style pour bouton vert -->
+	<Style Selector="Button.ButtonVert">
+		<Setter Property="Background" Value="#22B222" />
+		<Setter Property="Foreground" Value="White" />
+		<Setter Property="BorderBrush" Value="#00AA00" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="CornerRadius" Value="5" />
+		<Setter Property="Padding" Value="10,5" />
+		<Setter Property="FontWeight" Value="Bold" />
+
+		<Style Selector="^:pointerover">
+			<Setter Property="Background" Value="#11CC11" />
+		</Style>
+
+		<Style Selector="^:pressed">
+			<Setter Property="Background" Value="#009900" />
+		</Style>
+	</Style>
+
+	<!-- Style pour bouton bleu -->
+	<Style Selector="Button.ButtonBleu">
+		<Setter Property="Background" Value="#2222B2" />
+		<Setter Property="Foreground" Value="White" />
+		<Setter Property="BorderBrush" Value="#0000AA" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="CornerRadius" Value="5" />
+		<Setter Property="Padding" Value="10,5" />
+		<Setter Property="FontWeight" Value="Bold" />
+
+		<Style Selector="^:pointerover">
+			<Setter Property="Background" Value="#1111CC" />
+		</Style>
+
+		<Style Selector="^:pressed">
+			<Setter Property="Background" Value="#000099" />
+		</Style>
+	</Style>
+
+	<!-- Style pour TextBlock titre -->
+	<Style Selector="TextBlock.Titre">
+		<Setter Property="FontSize" Value="24" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="Foreground" Value="#333333" />
+		<Setter Property="Margin" Value="0,0,0,10" />
+	</Style>
+
+	<!-- Style pour TextBlock sous-titre -->
+	<Style Selector="TextBlock.SousTitre">
+		<Setter Property="FontSize" Value="16" />
+		<Setter Property="FontWeight" Value="SemiBold" />
+		<Setter Property="Foreground" Value="#666666" />
+		<Setter Property="Margin" Value="0,0,0,5" />
+	</Style>
+
+	<!-- Style pour TextBox -->
+	<Style Selector="TextBox.Moderne">
+		<Setter Property="BorderBrush" Value="#CCCCCC" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="CornerRadius" Value="5" />
+		<Setter Property="Padding" Value="8" />
+		<Setter Property="Background" Value="White" />
+
+		<Style Selector="^:focus">
+			<Setter Property="BorderBrush" Value="#007ACC" />
+		</Style>
+	</Style>
+
+	<!-- Style pour Panel principal -->
+	<Style Selector="StackPanel.Container">
+		<Setter Property="Margin" Value="20" />
+		<Setter Property="Spacing" Value="10" />
+	</Style>
+
+</Styles>
