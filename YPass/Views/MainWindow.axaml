@@ -52,7 +52,7 @@
                                VerticalAlignment="Center"/>
 				</StackPanel>
 
-				<StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10" >
+				<StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10">
 					<Button Content="Paramètres" Classes="ButtonBleu" />
 					<Button Content="À propos" Classes="ButtonVert" />
 				</StackPanel>
